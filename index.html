@@ -1,0 +1,416 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Boyfriend ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #fff0f6, #ffdce9);
+    color: #6b3048;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.8;
+    z-index: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main */
+.container {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px 0;
+}
+
+/* Opening */
+.intro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.envelope {
+    font-size: 70px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.small {
+    font-size: 13px;
+    letter-spacing: 3px;
+}
+
+h1 {
+    font-size: 38px;
+    margin: 15px 0;
+}
+
+.subtitle {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Button */
+button {
+    border: none;
+    background: #e889a8;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 8px 20px rgba(180, 80, 110, 0.25);
+    transition: 0.3s;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Surprise */
+#surprise {
+    display: none;
+    animation: appear 1.2s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cards */
+.card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 28px;
+    padding: 28px 22px;
+    margin: 25px 0;
+    box-shadow: 0 12px 35px rgba(120,50,80,0.12);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+/* Photos */
+.photos {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 5px;
+}
+
+.photos img {
+    width: 145px;
+    height: 185px;
+    object-fit: cover;
+    border-radius: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(100,50,70,0.15);
+}
+
+/* Message */
+.love {
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+.final {
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.signature {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Big heart */
+.big-heart {
+    font-size: 65px;
+    animation: heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+/* Music indicator */
+.music {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    background: rgba(255,255,255,0.85);
+    padding: 10px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    z-index: 10;
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+<div class="heart" style="left:8%; animation-delay:0s;">💗</div>
+<div class="heart" style="left:25%; animation-delay:2s;">💕</div>
+<div class="heart" style="left:45%; animation-delay:4s;">❤️</div>
+<div class="heart" style="left:65%; animation-delay:1s;">💗</div>
+<div class="heart" style="left:85%; animation-delay:3s;">💞</div>
+
+<!-- Music indicator -->
+<div class="music" id="musicStatus">
+    🎵 Playing...
+</div>
+
+<div class="container">
+
+    <!-- Opening -->
+    <section class="intro">
+
+        <div class="envelope">💌</div>
+
+        <p class="small">
+            A LITTLE SOMETHING FOR YOU
+        </p>
+
+        <h1>
+            Happy Boyfriend Day ❤️
+        </h1>
+
+        <p class="subtitle">
+            I made something special<br>
+            for my favourite person.
+        </p>
+
+        <button onclick="openSurprise()">
+            Click Me ❤️
+        </button>
+
+    </section>
+
+
+    <!-- Surprise -->
+    <section id="surprise">
+
+        <!-- First surprise -->
+        <div class="card">
+
+            <div class="big-heart">
+                ❤️
+            </div>
+
+            <h2>
+                You found it! 🥹
+            </h2>
+
+            <p class="love">
+                This little page is just for you.
+                <br><br>
+                Because you deserve something
+                as special as you are to me. ♡
+            </p>
+
+        </div>
+
+
+        <!-- Photos -->
+        <div class="card">
+
+            <h2>
+                Our Little Memories 📸
+            </h2>
+
+            <div class="photos">
+
+                <img src="photo1.jpg" alt="Our memory">
+
+                <img src="photo2.jpg" alt="Our memory">
+
+                <img src="photo3.jpg" alt="Our memory">
+
+            </div>
+
+            <p>
+                looking at our pictures always
+				makes my day better . ❤️
+            </p>
+
+        </div>
+
+
+        <!-- Love letter -->
+        <div class="card">
+
+            <h2>
+                A Little Message For You 💗
+            </h2>
+
+            <p class="love">
+
+                Thank you for being my safe place,
+                my happiness, my comfort person,
+                and my biggest supporter.
+
+                <br><br>
+
+                Thank you for making me laugh,
+                listening to me,
+                putting up with my nonsense,
+                and always being there for me.
+
+                <br><br>
+
+                You make my ordinary days
+                feel a little more special.
+
+                <br><br>
+
+                I hope you know how loved,
+                appreciated and precious you are to me.
+
+                🥹❤️
+
+            </p>
+
+        </div>
+
+
+        <!-- Final -->
+        <div class="card">
+
+            <div class="big-heart">
+                💗
+            </div>
+
+            <p class="final">
+                You're my favourite person.
+            </p>
+
+            <p class="final">
+                My favourite place.
+            </p>
+
+            <p class="final">
+                And my favourite part of every day. ❤️
+            </p>
+
+            <p class="signature">
+                Happy Boyfriend Day, love. 🥹
+                <br><br>
+                I love you. ♡
+                <br>
+                — Your girl, Durga 💗
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+
+function openSurprise() {
+
+    // Show surprise
+    document.getElementById("surprise").style.display = "block";
+
+    // Start background music
+    const music = document.getElementById("bgMusic");
+
+    music.play().then(function() {
+
+        document.getElementById("musicStatus").style.display = "block";
+
+    }).catch(function() {
+
+        console.log("Music could not start automatically.");
+
+    });
+
+    // Scroll down
+    setTimeout(function() {
+
+        document.getElementById("surprise").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }, 300);
+
+}
+
+</script>
+
+</body>
+</html>
+```
